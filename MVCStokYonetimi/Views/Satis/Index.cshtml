@@ -1,0 +1,51 @@
+﻿@model MVCStokYonetimi.Models.Entity.TBL_SATISLAR
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>SATISLAR SAYFASI</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1"> SATIS ISLEMI BASLAT</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">SATIS YAPMA EKRANI</h2>
+            </div>
+            @*<form method="post" action="/Satis/YeniSatis">*@
+            @using (Html.BeginForm("YeniSatis", "Satis", FormMethod.Post))
+            {
+
+                <div class="modal-body">
+                    <label>
+                        URUN:
+                    </label>
+                    @Html.TextBoxFor(m => m.URUN, new { @class = "form-control" })
+                    @*@Html.DropDownListFor(m => m.TBL_URUNLER.URUNID, (List<SelectListItem>)ViewBag.urun, new { @class = "form-control" })*@
+
+                    <br />
+                    <label>
+                        MUSTERI ADI SOYADI:
+                    </label>
+                    @Html.TextBoxFor(m => m.MUSTERI, new { @class = "form-control" })                    <br />
+                    <br />
+                    <label>
+                        ADET:
+                    </label>
+                    @Html.TextBoxFor(m => m.ADET, new { @class = "form-control" })                    <br />
+                    <br />
+                    <label>
+                        FIYAT:
+                    </label>
+                    @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })                    <br />
+                    <br />
+                    <button type="submit" class="btn btn-info">SATIS YAP</button>
+                    <button type="button" class="btn btn-block" data-dismiss="modal">VAZGEC</button>
+                </div>
+            }
+            @*</form>*@
+        </div>
+    </div>
+</div>

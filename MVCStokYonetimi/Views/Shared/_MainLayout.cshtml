@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Stok Yonetimi</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Kategoriler", "Index", "Kategori")</li>
+                <li>@Html.ActionLink("Urunler", "Index", "Urun")</li>
+                <li>@Html.ActionLink("Musteriler", "Index", "Musteri")</li>
+                <li>@Html.ActionLink("Satislar", "Index", "Satis")</li>
+                <li>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#geriBildirimModal"> GERI BILDIRIM YAP</button>
+                    <div class="modal" id="geriBildirimModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title">YARDIM EKRANI</h2>
+                                </div>
+                                <form>
+                                    <div class="modal-body">
+                                        <label>
+                                            EPOSTA ADRESINIZ:
+                                        </label>
+                                        <input type="email" name="email" class="form-control" />
+                                        <br />
+                                        <label>
+                                            MESAJINIZ:
+                                        </label>
+                                        <input type="text" height="300" name="email" class="form-control" />
+                                        <br />
+                                        <button class="btn btn-info">Verileri Kaydet</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

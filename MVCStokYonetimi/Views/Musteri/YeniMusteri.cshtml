@@ -1,0 +1,33 @@
+﻿@model MVCStokYonetimi.Models.Entity.TBL_MUSTERILER
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>YENI MUSTERI EKLEME SAYFASI</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Musteri Adi:</label>
+        @*<input type="text" class="form-control" name="MUSTERIAD" />*@
+        @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MUSTERIAD, "", new { @class = "p-3 mb-2 bg-danger text-white" })
+
+    </div>
+    <br />
+    <div>
+        <label>Musteri Soyadi:</label>
+        @*<input type="text" class="form-control" name="MUSTERISOYAD" />*@
+        @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MUSTERISOYAD, "", new { @class = "p-3 mb-2 bg-danger text-white" })
+    </div>
+    <br />
+    <button class="btn btn-info" id="btn1">MUSTERI EKLE</button>
+
+    <script>
+        $('#btn1').click(function () {
+            alert('MUSTERI EKLENDI');
+        });
+    </script>
+</form>
+

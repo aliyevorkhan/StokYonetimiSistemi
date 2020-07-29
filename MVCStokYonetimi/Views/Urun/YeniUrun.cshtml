@@ -1,0 +1,43 @@
+﻿@model MVCStokYonetimi.Models.Entity.TBL_URUNLER
+
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>YENI KATEGORI EKLEME SAYFASI</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Urun Adi:</label>
+        <input type="text" class="form-control" name="URUNAD" required="" maxlength="50" />
+    </div>
+    <br />
+    <div>
+        <label>Marka:</label>
+        <input type="text" class="form-control" name="MARKA" required="" maxlength="50" />
+    </div>
+    <br />
+    <div>
+        <label>Urun Kategorisi:</label>
+        @Html.DropDownListFor(m => m.TBL_KATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Urun Fiyati:</label>
+        <input type="number" class="form-control" name="FIYAT" required="" />
+    </div>
+    <br />
+    <div>
+        <label>Urun Stok Adeti:</label>
+        <input type="number" class="form-control" name="STOK" required="" />
+    </div>
+    <br />
+    <button class="btn btn-info" id="btn1">URUN EKLE</button>
+    <script>
+        $('#btn1').click(function () {
+            alert('MUSTERI EKLENDI');
+        });
+    </script>
+</form>
+

@@ -1,0 +1,27 @@
+﻿@model MVCStokYonetimi.Models.Entity.TBL_KATEGORILER
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>YENI KATEGORI EKLEME SAYFASI</h2>
+
+<form class="form-group" method="post">
+    @*<div>
+            <label>Kategori Adi:</label>
+            <input type="text" class="form-control" name="KATEGORIAD"/>
+        </div>*@
+
+    <div>
+        <label>Kategori Adi:</label>
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @class = "p-3 mb-2 bg-danger text-white" })
+    </div>
+    <br />
+    <button class="btn btn-info" id="btn1">KATEGORI EKLE</button>
+    <script>
+        $('#btn1').click(function () {
+            alert('MUSTERI EKLENDI');
+        });
+    </script>
+</form>

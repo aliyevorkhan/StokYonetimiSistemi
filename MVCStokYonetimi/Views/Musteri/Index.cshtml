@@ -1,0 +1,48 @@
+﻿@using MVCStokYonetimi.Models.Entity
+@model List<TBL_MUSTERILER>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>MUSTERI SAYFASI</h2>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>MUSTERI ID:</th>
+            <th>MUSTERI ADI:</th>
+            <th>MUSTERI SOYADI:</th>
+            <th>ISLEMLER:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mstr in Model)
+        {
+            <tr>
+                <th>@mstr.MUSTERIID</th>
+                <td>@mstr.MUSTERIAD</td>
+                <td>@mstr.MUSTERISOYAD</td>
+                <td>
+                    @Html.ActionLink("SIL", "Sil", new { id = mstr.MUSTERIID }, new { @class = "btn btn-danger", onclick = "return confirm('SILMEK ISTEDIGINIZE EMIN MISINIZ?')" })
+                    <a href="/MUSTERI/MusteriGetir/@mstr.MUSTERIID" class="btn btn-info">GUNCELLE</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/MUSTERI/YeniMusteri" class="btn btn-success">YENI MUSTERI EKLE</a>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({});
+</script>

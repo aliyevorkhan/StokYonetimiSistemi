@@ -1,0 +1,48 @@
+﻿@using MVCStokYonetimi.Models.Entity
+@model List<TBL_URUNLER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>URUN SAYFASI</h2>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>URUN ID:</th>
+            <th>URUN ADI:</th>
+            <th>MARKA:</th>
+            <th>KATEGORI ID:</th>
+            <th>FIYAT:</th>
+            <th>STOK:</th>
+            <th>ISLERMLER:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <th>@urun.URUNID</th>
+                <td>@urun.URUNAD</td>
+                <td>@urun.MARKA</td>
+                <td>@urun.TBL_KATEGORILER.KATEGORIAD    </td>
+                <td>@urun.FIYAT</td>
+                <td>@urun.STOK</td>
+                <td>@Html.ActionLink("SIL", "Sil", new { id = urun.URUNID }, new { @class = "btn btn-danger", onclick = "return confirm('SILMEK ISTEDIGINIZE EMIN MISINIZ?')" }) <a href="/URUN/UrunGetir/@urun.URUNID" class="btn btn-info">GUNCELLE</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/URUN/YeniUrun" class="btn btn-success">YENI URUN EKLE</a>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({});
+</script>
